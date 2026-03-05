@@ -1,0 +1,64 @@
+package Linked_List.SLL;
+class Node1
+{
+    int data;
+    Node1 next;
+    Node1(int data)
+    {
+        this.data=data;
+        next=null;
+    }
+}
+class c1
+{
+    Node1 head;
+
+    void insert(int data) {
+        Node1 newnode = new Node1(data);
+        if (head == null) {
+            head = newnode;
+            return;
+        }
+        Node1 temp = head;
+        while (temp.next != null) {
+            temp = temp.next;
+        }
+        temp.next = newnode;
+    }
+    void dis() {
+        Node1 temp = head;
+
+        while (temp != null) {
+            System.out.print(temp.data);
+            if (temp.next != null) {
+                System.out.print("->");
+            }
+            temp = temp.next;
+        }
+        System.out.println(" ");
+    }
+}
+public class middle {
+    public static int m (Node1 head) {
+
+        Node1 s=head;
+        Node1 f=head;
+        while(f!=null && f.next!=null)
+        {
+            s=s.next;
+            f=f.next.next;
+        }
+        return s.data;
+
+    }
+    public static void main(String[] args) {
+        c1 o=new c1();
+        o.insert(1);
+        o.insert(2);
+        o.insert(3);
+        o.insert(4);
+        o.dis();
+        System.out.print(m(o.head));
+
+    }
+}
